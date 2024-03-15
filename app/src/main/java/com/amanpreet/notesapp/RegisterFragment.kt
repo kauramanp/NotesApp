@@ -58,6 +58,8 @@ class RegisterFragment : Fragment() {
                 binding.etEmail.error = "Enter email"
             } else if(binding.etPassword.text.toString().isNullOrEmpty()){
                 binding.etPassword.error = "Enter password"
+            } else if(binding.etPassword.text.toString().length <6){
+                binding.etPassword.error = "Password should be of 6 characters"
             } else {
                 auth.createUserWithEmailAndPassword(binding.etEmail.text.toString(),
                     binding.etPassword.text.toString())
