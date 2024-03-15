@@ -32,13 +32,13 @@ class AddUpdateNotesFragment : Fragment() {
     var db = Firebase.firestore
     var auth = Firebase.auth
     lateinit var binding: FragmentAddUpdateNotesBinding
-    lateinit var registrationActivity: RegistrationActivity
+    lateinit var mainActivity: MainActivity
     var notesId : String = ""
     var notes = Notes()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        registrationActivity = activity as RegistrationActivity
+        mainActivity = activity as MainActivity
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)

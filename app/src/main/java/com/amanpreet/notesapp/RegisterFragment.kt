@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
 import com.amanpreet.notesapp.databinding.FragmentLoginBinding
 import com.amanpreet.notesapp.databinding.FragmentRegisterBinding
@@ -61,7 +62,14 @@ class RegisterFragment : Fragment() {
                 auth.createUserWithEmailAndPassword(binding.etEmail.text.toString(),
                     binding.etPassword.text.toString())
                     .addOnSuccessListener {
-                        findNavController().popBackStack()
+                        AlertDialog.Builder(registrationActivity).apply {
+                            setTitle("Congratulations")
+                            setMessage("You are registered successfully")
+                            setPositiveButton("Login"){_,_->
+                                findNavController().popBackStack()
+                            }
+                            show()
+                        }
                     }.addOnFailureListener{
                         Toast.makeText(registrationActivity, "Sorry", Toast.LENGTH_LONG).show()
                     }

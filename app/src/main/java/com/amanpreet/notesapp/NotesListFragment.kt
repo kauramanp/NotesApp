@@ -145,6 +145,7 @@ class NotesListFragment : Fragment(), NotesClick {
                     Toast.makeText(mainActivity, "Notes Deleted", Toast.LENGTH_LONG).show()
                 }
             }
+            show()
         }
     }
 }
